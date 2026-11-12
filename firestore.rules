@@ -1,0 +1,19 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /stats_nv10/{docId} {
+      // Cho phép mọi người đọc số lượt xem/tải
+      allow read: if true;
+      
+      // Chỉ cho phép cập nhật tăng tối đa 1 đơn vị cho views hoặc downloads
+      allow update: if request.resource.data.diff(resource.data).affectedKeys().hasOnly(['views', 'downloads'])
+                    && (request.resource.data.views == resource.data.views + 1 || request.resource.data.views == resource.data.views)
+                    && (request.resource.data.downloads == resource.data.downloads + 1 || request.resource.data.downloads == resource.data.downloads);
+      
+      // Cho phép tạo mới tài liệu nếu chưa có trong hệ thống
+      allow create: if request.resource.data.keys().hasAll(['views', 'downloads'])
+                    && request.resource.data.views is number
+                    && request.resource.data.downloads is number;
+    }
+  }
+}
