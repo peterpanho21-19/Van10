@@ -2,10 +2,10 @@
 // Điền 4 thông số lấy từ Firebase Console vào giữa hai dấu ngoặc kép bên dưới:
 
 const FIREBASE_CONFIG = {
-  apiKey: "",          // Ví dụ: "AIzaSy..."
-  authDomain: "",      // Ví dụ: "eng8-53ba0.firebaseapp.com" hoặc project mới của bạn
-  projectId: "",       // Ví dụ: "eng8-53ba0" hoặc ID project của bạn
-  appId: ""            // Ví dụ: "1:..."
+  apiKey: "AIzaSyBDZ6WxYq_vc3zquP0j6JYUIpFR4RMIbHg",          
+  authDomain: "van-10-c4926.firebaseapp.com",    
+  projectId: "van-10-c4926",       
+  appId: "1:877183655024:web:f926a05cd44ff4242228b5"          
 };
 
 // Cấu hình hiển thị
